@@ -27,21 +27,19 @@ app.get('/posts/postdetail/:post_id', controllerT.IndPost)
 
 
 app.post('/posts/:teacher_id', 
-middleware.stripToken,
-middleware.verifyToken,
+// middleware.stripToken,
+// middleware.verifyToken,
 controllerT.CreatePost)
 app.post('/comments/:post_id', controllerT.CreateComment)
 app.post('/login', controllerA.Login)
 app.post('/register', controllerA.Register)
 
 app.delete('/posts/:post_id', 
-middleware.stripToken,
-middleware.verifyToken,
 controllerT.DeletePost)
 
 app.put('/posts/:post_id', 
-middleware.stripToken,
-middleware.verifyToken,
+// middleware.stripToken,
+// middleware.verifyToken,
 controllerT.UpdatePost)
 
 app.put('/:teacher_id',
