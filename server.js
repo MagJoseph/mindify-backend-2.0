@@ -7,15 +7,13 @@ const middleware = require('./middleware')
 
 /////////// MIDDLEWARE //////////
 app.use(cors({
-    origin: '*'
+    origin: '*',
+    methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
 }))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false}))
-// app.use(function(req, res, next) {
-//     res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
-//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//     next();
-//   });
+app.options('*')
+
 /////////// DEFINE CONTROLLER VARIABLES /////////////
 const controllerT = require('./controllers/TeacherController')
 const controllerA = require('./controllers/AuthController')
@@ -48,7 +46,7 @@ app.post('/questions/:user_id', controllerU.CreateQuestions)
 app.post('/questions/reply/:question_id', controllerU.CreateReplies)
 app.post('/login', controllerA.Login)
 app.post('/register', controllerA.Register)
-app.get('/:teacher_id', controllerT.GetIndTeacher)
+app.get('/user/:teacher_id', controllerT.GetIndTeacher)
 app.delete('/posts/:post_id', controllerT.DeletePost)
 app.put('/likes/:post_id', controllerT.UpdateLikes)
 
