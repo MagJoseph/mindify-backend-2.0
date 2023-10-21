@@ -1,3 +1,4 @@
+
 # Mindify (Back End)
 ![Mindify](img/mar-bustos-ARVFsI-32Uk-unsplash.jpg "Mindify")
 ***********
@@ -63,3 +64,4 @@ Mindify is a one stop shop for all your mental, emotional, and physical needs. E
  - GA Past Lessons/Labs Repos
 
  - Ben Manning and Nabila Ayaba
+
