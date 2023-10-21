@@ -49,6 +49,7 @@ app.post('/register', controllerA.Register)
 app.get('/user/:teacher_id', controllerT.GetIndTeacher)
 app.delete('/posts/:post_id', controllerT.DeletePost)
 app.put('/likes/:post_id', controllerT.UpdateLikes)
+app.get('/search/:searchQuery', controllerU.FindPost);
 
 
 

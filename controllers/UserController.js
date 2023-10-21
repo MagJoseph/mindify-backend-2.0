@@ -1,7 +1,8 @@
 /////////////////// IMPORT ////////////////
-const { User, Question, Reply, Teacher } = require('../models')
+const { User, Question, Reply, Post, Teacher } = require('../models')
 const reply = require('../models/reply')
 const user = require('../models/user')
+const { Op } = require("sequelize");
 
 ////////////// GET CONTROLLERS //////////////
 
@@ -67,10 +68,31 @@ const CreateReplies = async (req, res) => {
     }
 }
 
+////////////////// Search ///////////////////
+
+const FindPost = async (req, res) => {
+  try {
+    let searchQuery = req.params.searchQuery;
+    const find = await Post.findAll({
+      where: {
+        title: {
+          [Op.like]: `%${searchQuery}%`,
+        },
+      },
+    });
+    if (find) {
+      return res.send(find);
+    }
+  } catch (error) {
+    throw error;
+  }
+};
+
 /////////////// EXPORT ///////////////
 module.exports = {
     GetAllQuestions,
     CreateUsers,
     CreateQuestions,
-    CreateReplies
+    CreateReplies,
+    FindPost
 }
