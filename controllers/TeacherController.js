@@ -19,7 +19,7 @@ const GetIndTeacher = async (req, res) => {
         const indTeacher = await Teacher.findByPk(parseInt(req.params.teacher_id))
         res.send(indTeacher)
     }catch (error){
-        throw error
+         console.log(error)
     }
 
 }
@@ -32,7 +32,7 @@ const GetIndTeacherPosts = async (req, res) => {
         })
         res.send(teacherPosts)
     } catch (error) {
-        throw error
+        console.log(error)
     }
 
 }
