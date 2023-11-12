@@ -1,4 +1,3 @@
-//////// IMPORT ////////////
 const express = require('express');
 const cors = require('cors')
 const PORT = process.env.PORT || 3001;
@@ -50,6 +49,7 @@ app.get('/user/:teacher_id', controllerT.GetIndTeacher)
 app.delete('/posts/:post_id', controllerT.DeletePost)
 app.put('/likes/:post_id', controllerT.UpdateLikes)
 app.get('/search/:searchQuery', controllerU.FindPost);
+app.delete('/questions/:question_id', controllerU.DeleteQuestion);
 
 
 

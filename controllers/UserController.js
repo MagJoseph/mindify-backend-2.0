@@ -67,6 +67,18 @@ const CreateReplies = async (req, res) => {
         throw error
     }
 }
+/////////////////// Delete //////////////////////////
+
+const DeleteQuestion = async (req, res) => {
+  try {
+    const questId = parseInt(req.params.question_id);
+    const deletedQuestion = await Post.destroy({ where: { id: questId } });
+    res.send({ message: `Deleted question with an id of ${questId}` });
+  } catch (error) {
+    throw error;
+  }
+};
+
 
 ////////////////// Search ///////////////////
 
@@ -94,5 +106,6 @@ module.exports = {
     CreateUsers,
     CreateQuestions,
     CreateReplies,
-    FindPost
+    FindPost,
+    DeleteQuestion
 }
